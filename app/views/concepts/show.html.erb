@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @concept.name %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @concept.image_url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @concept.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_concept_path(@concept) %> |
+<%= link_to 'Back', concepts_path %>
