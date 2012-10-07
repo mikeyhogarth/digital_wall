@@ -1,14 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @client.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @client.name %>
-</p>
-
-<% @client.presentations.each do |presentation| %>
-  link_to presentation.name, presentation
-<% end %>
-
-
-<%= link_to 'New Presentation', new_client_presentation_path(:client_id => @client.id) %>
-<%= link_to 'Back', clients_path %>
+<ul>
+  <li><%= link_to "View Client Presentations", client_presentations_path(@client) %></li>
+  <li><%= link_to 'New Presentation', new_client_presentation_path(@client) %></li>
+  <li><%= link_to 'Back', clients_path %></li>
+</ul>

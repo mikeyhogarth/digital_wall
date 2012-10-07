@@ -3,6 +3,7 @@ class Presentation < ActiveRecord::Base
 
   validates_presence_of :name
 
-  belongs_to :presentation
+  belongs_to :client
+  has_many :concepts
 
 end

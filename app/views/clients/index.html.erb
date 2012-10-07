@@ -1,19 +1,10 @@
 <h1>Listing clients</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul>
 <% @clients.each do |client| %>
-  <tr>
-    <td><%= link_to client.name, client %></td>
-  </tr>
+    <li><%= link_to client.name, client %></li>
 <% end %>
-</table>
+</ul>
 
 <br />
 

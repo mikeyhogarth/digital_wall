@@ -1,20 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
+<h1>
   <%= @presentation.name %>
-</p>
-
+</h1>
 <p>
-  <b>Description:</b>
   <%= @presentation.description %>
 </p>
 
-<p>
-  <b>Client:</b>
-  <%= @presentation.client_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_presentation_path(@presentation) %> |
-<%= link_to 'Back', presentations_path %>
+<%= link_to 'Edit', edit_client_presentation_path(@presentation.client, @presentation) %> |
+<%= link_to 'Back', client_presentations_path %>

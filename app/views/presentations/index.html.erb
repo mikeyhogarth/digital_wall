@@ -1,27 +1,20 @@
-<h1>Listing presentations</h1>
+<h1>Presentations for <%= @client.name %></h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Client</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= link_to 'New Presentation', new_client_presentation_path(@client) %> | 
+<%= link_to "Back", client_path(@client) %>
+
+<hr />
 
 <% @presentations.each do |presentation| %>
-  <tr>
-    <td><%= presentation.name %></td>
-    <td><%= presentation.description %></td>
-    <td><%= presentation.client_id %></td>
-    <td><%= link_to 'Show', client_presentation %></td>
-    <td><%= link_to 'Edit', edit_client_presentation_path(presentation) %></td>
-    <td><%= link_to 'Destroy', client_presentation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+
+    <h2>
+    <%= 
+          link_to presentation.name, client_presentation_path(@client, presentation) 
+    %></h2>
+
+      <p><%= link_to 'Edit', edit_client_presentation_path(@client, presentation) %> | <%= link_to 'Destroy', client_presentation_path(@client, presentation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    
+    <p><%= presentation.description %></p>
+    
+    
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Presentation', new_client_presentation_path %>

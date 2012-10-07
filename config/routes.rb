@@ -5,6 +5,8 @@ DigitalWall::Application.routes.draw do
       resources :concepts
     end
   end
+  
+ 
 
 
   # The priority is based upon order of creation:
