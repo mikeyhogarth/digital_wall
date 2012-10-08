@@ -2,7 +2,6 @@ DigitalWall::Application.routes.draw do
   
   resources :clients do
     resources :presentations do
-      resources :concepts
     end
   end
   
