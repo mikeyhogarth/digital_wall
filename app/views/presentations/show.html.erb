@@ -5,5 +5,22 @@
   <%= @presentation.description %>
 </p>
 
+<hr />
+
+<h2>Add a concept:</h2>
+<%= form_for([@presentation.client, @presentation, @presentation.concepts.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to 'Edit', edit_client_presentation_path(@presentation.client, @presentation) %> |
 <%= link_to 'Back', client_presentations_path %>
