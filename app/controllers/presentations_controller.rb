@@ -17,6 +17,7 @@ class PresentationsController < ApplicationController
   # GET /presentations/1.json
   def show
     
+    @client = Client.find(params[:client_id])
     @presentation = Presentation.find(params[:id])
     
     respond_to do |format|

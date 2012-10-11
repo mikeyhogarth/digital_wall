@@ -5,7 +5,19 @@
   <%= @presentation.description %>
 </p>
 
+<%= link_to "Back to #{@client.name} presentations", client_presentations_url(@client) %>
+
 <hr />
+
+<h2>Concepts</h2>
+
+<ul>
+<% @presentation.concepts.each do |concept| %>
+	
+	<li>* <%= concept.name %></li>
+	
+<% end %>
+</ul>
 
 <h2>Add a concept:</h2>
 <%= form_for([@presentation.client, @presentation, @presentation.concepts.build]) do |f| %>

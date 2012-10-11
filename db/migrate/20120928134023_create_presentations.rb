@@ -3,7 +3,7 @@ class CreatePresentations < ActiveRecord::Migration
     create_table :presentations do |t|
       t.string :name
       t.text :description
-      t.integer :client_id
+      t.references :client
 
       t.timestamps
     end

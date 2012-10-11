@@ -1,8 +1,0 @@
-class Presentation < ActiveRecord::Base
-  attr_accessible :client_id, :description, :name
-
-  validates_presence_of :name, :client_id
-
-  belongs_to :presentation
-
-end

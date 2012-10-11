@@ -1,7 +1,8 @@
 <h1><%= @client.name %></h1>
-
+<p>
+	<%= @client.description %>
+</p>
 <ul>
   <li><%= link_to "View Client Presentations", client_presentations_path(@client) %></li>
-  <li><%= link_to 'New Presentation', new_client_presentation_path(@client) %></li>
-  <li><%= link_to 'Back', clients_path %></li>
+  <li><%= link_to 'Back to client list', clients_path %></li>
 </ul>
