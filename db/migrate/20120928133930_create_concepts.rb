@@ -3,7 +3,6 @@ class CreateConcepts < ActiveRecord::Migration
     create_table :concepts do |t|
       
       t.string :name
-      t.string :image_url
       t.text :description
       t.references :presentation
       
