@@ -1,12 +1,12 @@
 DigitalWall::Application.routes.draw do
   
   resources :clients do
-    resources :presentations do
-      resources :concepts
-    end
+    resources :presentations
   end
   
- 
+  resources :presentations do
+    resources :concepts
+  end
 
 
   # The priority is based upon order of creation:

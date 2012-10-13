@@ -8,13 +8,17 @@
 <% @presentations.each do |presentation| %>
 
     <h2>
-    <%= 
-          link_to presentation.name, client_presentation_path(@client, presentation) 
-    %></h2>
+    	<%= link_to presentation.name, client_presentation_path(@client, presentation) %>
+	</h2>
+	
+	<% if presentation.has_concept? %>
+	<%= image_tag presentation.concepts.first.image.url(:thumbnail) %>
+	<% end %>
 
-      <p><%= link_to 'Edit', edit_client_presentation_path(@client, presentation) %> | <%= link_to 'Destroy', client_presentation_path(@client, presentation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <p><%= link_to 'Edit', edit_client_presentation_path(@client, presentation) %> | <%= link_to 'Destroy', client_presentation_path(@client, presentation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
     
     <p><%= presentation.description %></p>
     
+<hr />
     
 <% end %>
