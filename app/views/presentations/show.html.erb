@@ -1,14 +1,7 @@
-<% if current_user.administrator? %>
-	<% content_for :document_ready do %>
-
-	<script type = "text/javascript">
-		$(document).ready(function() {
-			$(".colorbox").colorbox();
-		});
-	</script>
-
-	<% end %>
+<% content_for :document_ready do %>
+	<%= render "document_ready_scripts" %>
 <% end %>
+
 
 <h1> <%= @presentation.name %> </h1>
 <p> <%= @presentation.description %> </p>
@@ -22,14 +15,17 @@
 <hr />
 
 <h2>Concepts</h2>
-<ul>
+<ul id="Gallery" class = "gallery">
 <% @presentation.concepts.each do |concept| %>
-	<div>
-		<%= image_tag concept.image.url(:thumbnail) %>
+	<li>
+		<a href = "<%= concept.image.url(:original) %>" class = "gallery_image">
+			<%= image_tag concept.image.url(:thumbnail) %>
+		</a>
 		
 		<% if current_user.administrator? %>
+		
 		<p><%= concept.name %> <%= link_to 'Destroy', presentation_concept_path(@presentation, concept), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
-		<% end %>
-	</div>
+			<% end %>
+	</li>
 <% end %>
 </ul>

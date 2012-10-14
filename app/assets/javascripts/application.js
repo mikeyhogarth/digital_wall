@@ -15,3 +15,5 @@
 //= require_tree .
 
 //= require jquery.colorbox
+//= require photoswipe/klass
+//= require photoswipe/jquery.photoswipe
