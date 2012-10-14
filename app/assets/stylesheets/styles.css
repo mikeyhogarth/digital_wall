@@ -6,3 +6,16 @@ h2{
     margin-top: 20px;
     font-size:18px;
 }
+
+#auth_controls
+{
+	float:right;
+}
+
+#flash_messages
+{
+	padding: 10px;
+	background-color: #C0D9AF;
+	border: 3px solid #458B00;
+	width:300px;
+}

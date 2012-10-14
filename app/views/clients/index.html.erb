@@ -8,4 +8,6 @@
 
 <br />
 
-<%= link_to 'New Client', new_client_path %>
+<% if current_user.administrator? %>
+	<%= link_to 'New Client', new_client_path %>
+<% end %>

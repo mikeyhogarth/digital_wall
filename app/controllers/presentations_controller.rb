@@ -1,5 +1,6 @@
 class PresentationsController < ApplicationController
 
+  before_filter :admin_only!, :except => [:show, :index]
 
   def index
     @client = Client.find(params[:client_id])

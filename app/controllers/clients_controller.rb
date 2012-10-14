@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
 
+  before_filter :admin_only!, :except => [:show, :index]
+
   def index
     @clients = Client.all
   end

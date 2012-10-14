@@ -1,5 +1,7 @@
 class ConceptsController < ApplicationController
   
+  before_filter :admin_only!
+
   def new
     @presentation = Presentation.find(params[:presentation_id])
     @concept = @presentation.concepts.build

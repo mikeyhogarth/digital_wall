@@ -1,9 +1,16 @@
 <h1>Presentations for <%= @client.name %></h1>
 
-<%= link_to 'New Presentation', new_client_presentation_path(@client) %> | 
+<% if current_user.administrator? %>
+	<%= link_to 'New Presentation', new_client_presentation_path(@client) %> |
+<% end %>
+ 
 <%= link_to "Back", client_path(@client) %>
 
 <hr />
+
+<% if @presentations.empty? %>
+	<p>This client does not have nay presentations loaded</p>
+<% end %>
 
 <% @presentations.each do |presentation| %>
 
@@ -15,10 +22,12 @@
 	<%= image_tag presentation.concepts.first.image.url(:thumbnail) %>
 	<% end %>
 
+
+<% if current_user.administrator? %>
     <p><%= link_to 'Edit', edit_client_presentation_path(@client, presentation) %> | <%= link_to 'Destroy', client_presentation_path(@client, presentation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
     
     <p><%= presentation.description %></p>
-    
+<% end %>
 <hr />
     
 <% end %>

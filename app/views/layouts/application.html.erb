@@ -7,12 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <p id="notice"><%= notice %></p>
   
-  <%= yield %>
+	<div id = "auth_controls">
+  		<%= link_to "Log Out", log_out_path if current_user %>
+	</div>
+	
+	<% unless(flash.empty?) %>
+		<div id = "flash_messages">
+  			<% flash.each do |name, msg| %>
+      			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+  			<% end %>
+		</div>
+	<% end %>
 
-  <%= yield :document_ready %>
+  	<%= yield %>
+
+  	<%= yield :document_ready %>
 
 </body>
 </html>

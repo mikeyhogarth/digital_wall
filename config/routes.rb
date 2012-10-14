@@ -1,5 +1,13 @@
 DigitalWall::Application.routes.draw do
+
+  root :to => 'sessions#new'
   
+  #authentication routes
+  match 'log_in' => 'sessions#new', :as => :log_in
+  match 'log_out' => 'sessions#destroy', :as => :log_out
+  match 'authenticate' => 'sessions#create', :as => :authenticate
+
+  #other resources
   resources :clients do
     resources :presentations
   end
@@ -7,6 +15,8 @@ DigitalWall::Application.routes.draw do
   resources :presentations do
     resources :concepts
   end
+
+
 
 
   # The priority is based upon order of creation:
@@ -58,7 +68,7 @@ DigitalWall::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'clients#index'
+
 
   # See how all your routes lay out with "rake routes"
 

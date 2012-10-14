@@ -1,4 +1,5 @@
-<% content_for :document_ready do %>
+<% if current_user.administrator? %>
+	<% content_for :document_ready do %>
 
 	<script type = "text/javascript">
 		$(document).ready(function() {
@@ -6,12 +7,16 @@
 		});
 	</script>
 
+	<% end %>
 <% end %>
 
 <h1> <%= @presentation.name %> </h1>
 <p> <%= @presentation.description %> </p>
 
-<%= link_to "New Concept", new_presentation_concept_path(@presentation), :class => "colorbox" %> |
+<% if current_user.administrator? %>
+	<%= link_to "New Concept", new_presentation_concept_path(@presentation), :class => "colorbox" %> |
+<% end %>
+	
 <%= link_to "Back to #{@client.name} presentations", client_presentations_url(@client) %>
 
 <hr />
@@ -21,7 +26,10 @@
 <% @presentation.concepts.each do |concept| %>
 	<div>
 		<%= image_tag concept.image.url(:thumbnail) %>
+		
+		<% if current_user.administrator? %>
 		<p><%= concept.name %> <%= link_to 'Destroy', presentation_concept_path(@presentation, concept), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+		<% end %>
 	</div>
 <% end %>
 </ul>
