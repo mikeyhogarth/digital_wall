@@ -1,8 +1,10 @@
 DigitalWall::Application.routes.draw do
 
-  root :to => 'sessions#new'
+
+  root :to => 'clients#index'
   
   #authentication routes
+  resources :users
   match 'log_in' => 'sessions#new', :as => :log_in
   match 'log_out' => 'sessions#destroy', :as => :log_out
   match 'authenticate' => 'sessions#create', :as => :authenticate

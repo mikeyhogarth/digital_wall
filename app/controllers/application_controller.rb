@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   
   before_filter :require_login
   helper_method :current_user
-    
   
   protected
   #-------------------  
@@ -18,7 +17,7 @@ class ApplicationController < ActionController::Base
   private
   #-------------------  
   def require_login
-    redirect_to root_url unless current_user
+    redirect_to log_in_path unless current_user
   end
   
   def current_user
