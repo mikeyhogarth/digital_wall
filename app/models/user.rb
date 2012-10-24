@@ -4,8 +4,14 @@ class User < ActiveRecord::Base
   has_secure_password
   validates_presence_of :password, :on => :create
   
+  belongs_to :client
+  
   def administrator?
     administrator || false
+  end
+  
+  def client?
+    client.present?
   end
   
 end

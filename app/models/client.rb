@@ -11,6 +11,6 @@ class Client < ActiveRecord::Base
   
   #associations
   has_many :presentations
-
+  has_many :users
 
 end

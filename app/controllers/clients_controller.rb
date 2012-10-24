@@ -4,6 +4,11 @@ class ClientsController < ApplicationController
 
   def index
     @clients = Client.all
+    
+    if current_user.client?
+      redirect_to current_user.client
+    end
+    
   end
 
   def show

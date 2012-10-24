@@ -4,5 +4,9 @@
 </p>
 <ul>
   <li><%= link_to "View Client Presentations", client_presentations_path(@client) %></li>
-  <li><%= link_to 'Back to client list', clients_path %></li>
+
+	<% unless current_user.client? %>
+  		<li><%= link_to 'Back to client list', clients_path %></li>
+	<% end %>
+	
 </ul>
