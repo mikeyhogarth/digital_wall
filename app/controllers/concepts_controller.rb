@@ -1,14 +1,19 @@
 class ConceptsController < ApplicationController
   
-  before_filter :admin_only!
+  before_filter :admin_only!, :except => :show
 
+  
+  def show
+    @concept = Concept.find(:id)
+  end
+  
+  
   def new
     @presentation = Presentation.find(params[:presentation_id])
     @concept = @presentation.concepts.build
 
     render partial: "form"
-  end
-  
+  end  
   
   def create
     @presentation = Presentation.find(params[:presentation_id])
@@ -21,8 +26,7 @@ class ConceptsController < ApplicationController
     end
     
   end
-  
-  
+    
   def destroy
     @presentation = Presentation.find(params[:presentation_id])
     @concept = Concept.find(params[:id])

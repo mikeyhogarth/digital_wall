@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20121014140933) do
 
   create_table "concepts", :force => true do |t|
     t.string   "name"
+    t.string   "image_url"
     t.text     "description"
     t.integer  "presentation_id"
     t.datetime "created_at",         :null => false
