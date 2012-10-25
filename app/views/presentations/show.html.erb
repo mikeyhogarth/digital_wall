@@ -21,6 +21,7 @@
 		<a href = "<%= concept.image.url(:original) %>" class = "gallery_image">
 			<%= image_tag concept.image.url(:thumbnail) %>
 		</a>
+		<%= link_to concept.name, presentation_concept_path(@presentation, concept) %> 
 		
 		<% if current_user.administrator? %>
 		
