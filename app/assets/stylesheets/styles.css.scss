@@ -7,9 +7,15 @@ h2{
     font-size:18px;
 }
 
-#auth_controls
+header
 {
-	float:right;
+	display:block;
+	height: 60px;
+
+	#auth_controls
+	{
+		float:right;
+	}
 }
 
 #flash_messages
@@ -18,4 +24,16 @@ h2{
 	background-color: #C0D9AF;
 	border: 3px solid #458B00;
 	width:300px;
+}
+
+
+body
+{
+	text-align: center;
+}
+#container
+{
+	margin: 0 auto;
+	width:900px;
+	text-align: left;
 }

@@ -26,7 +26,7 @@
 <% if current_user.administrator? %>
     <p><%= link_to 'Edit', edit_client_presentation_path(@client, presentation) %> | <%= link_to 'Destroy', client_presentation_path(@client, presentation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
     
-    <p><%= presentation.description %></p>
+    <div><%= raw presentation.description %></div>
 <% end %>
 <hr />
     
