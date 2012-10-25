@@ -4,7 +4,7 @@
 
 
 <h1> <%= @presentation.name %> </h1>
-<p> <%= @presentation.description %> </p>
+<p> <%= raw @presentation.description %> </p>
 
 <% if current_user.administrator? %>
 	<%= link_to "New Concept", new_presentation_concept_path(@presentation), :class => "colorbox" %> |

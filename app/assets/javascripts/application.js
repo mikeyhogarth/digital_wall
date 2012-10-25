@@ -18,3 +18,4 @@
 //= require photoswipe/klass
 //= require photoswipe/jquery.photoswipe
 //= require gritter
+//= require redactor-rails
