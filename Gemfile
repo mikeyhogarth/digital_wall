@@ -45,3 +45,4 @@ gem "gritter", "1.0.2"
 gem 'redactor-rails'
 gem "carrierwave"
 gem "mini_magick"
+gem "sanitize"
