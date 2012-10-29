@@ -61,41 +61,72 @@ header
 body
 {
 	text-align: center;
+	
+	#container
+	{
+		margin: 0 auto;
+		width:900px;
+		text-align: left;
+		
+		
+		p{
+			line-height: 16px;
+			margin-bottom: 10px;
+		}
+
+		hr
+		{
+			clear:both;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+
+		img
+		{
+
+		border: 2px solid #EEE;
+		}
+
+		img.presentation_list_thumbnail
+		{
+			float:left;
+			margin-right: 5px;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.field
+{
+	label
+	{
+		margin-top: 10px;
+		display: block;
+	}
+}
+
+.actions
+{
+display: inline;
+input[type=submit]
+{
+	display: inline;
+	padding: 10px 12px 8px 12px;
+	background: #AAA;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	margin-top: 10px;
+}
+
+input[type=submit]:hover
+{
+	background-color: #CE1141;
+	color: #FFF;
+}
 }
 
 #colorbox
 {
 	text-align: left;
-}
-
-#container
-{
-	margin: 0 auto;
-	width:900px;
-	text-align: left;
-}
-
-p{
-	line-height: 16px;
-	margin-bottom: 10px;
-}
-
-hr
-{
-	clear:both;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-img
-{
-
-border: 2px solid #EEE;
-}
-
-img.presentation_list_thumbnail
-{
-	float:left;
-	margin-right: 5px;
-	margin-bottom: 5px;
 }

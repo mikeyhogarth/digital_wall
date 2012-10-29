@@ -11,11 +11,12 @@
 
 
 <h1> <%= @presentation.name %> </h1>
-<p> <%= sanitize @presentation.description %> </p>
 
 <% if current_user.administrator? %>
-	<%= link_to "Edit Presentation", edit_client_presentation_path(@client, @presentation) %>
+	<%= link_to "Edit", edit_client_presentation_path(@client, @presentation) %>
 <% end %>
+
+<p> <%= sanitize @presentation.description %> </p>
 	
 
 

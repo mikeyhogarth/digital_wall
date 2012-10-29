@@ -7,8 +7,8 @@ class Concept < ActiveRecord::Base
 
   
   #validation
-  validates_presence_of :name
-
+  validates_presence_of :name, :description
+  validates_attachment_presence :image
 
   #associations
   belongs_to :presentation
