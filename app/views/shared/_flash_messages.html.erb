@@ -1,0 +1,5 @@
+<% unless(flash.empty?) %>
+<% flash.each do |name, msg| %>
+<%= js add_gritter(msg, :title => "Notice" ,:image => :notice) %>      
+<% end %>
+<% end %>

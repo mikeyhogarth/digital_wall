@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id = "container">
+  <div id = "container">
     <header>
 	  <div id = "auth_controls">
 	    <%= link_to "Manage Users", users_path if current_user && current_user.administrator? %>
@@ -19,11 +19,7 @@
 
   	<%= yield :document_ready %>
 
-	<% unless(flash.empty?) %>
-          <% flash.each do |name, msg| %>
-            <%= js add_gritter(msg, :title => "Notice" ,:image => :notice) %>      
-            <% end %>
-	<% end %>
-	</div>
+	<%= render "shared/flash_messages" %>
+  </div>
 </body>
 </html>
