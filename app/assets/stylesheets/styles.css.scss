@@ -1,10 +1,26 @@
+h1, h2, h3, h4, h5
+{
+    margin-top: 20px;
+	color: #ce1141;
+}
+
 h1{
     font-size: 24px;
 }
 
 h2{
-    margin-top: 20px;
     font-size:18px;
+}
+
+a
+{
+	color: #888;
+	outline: none;
+}
+
+a:hover, a:active
+{
+ 	color: #ce1141
 }
 
 header
@@ -12,10 +28,24 @@ header
 	display:block;
 	height: 60px;
 
+	h1 a
+	{
+		color: #ce1141;
+		text-decoration: none;
+	}
+
 	#auth_controls
 	{
 		float:right;
 	}
+	h1 { float: left; }
+}
+
+#breadcrumbs
+{
+	padding: 10px 0;
+	border-top: solid 1px #aaa;
+	border-bottom: solid 1px #aaa;
 }
 
 #flash_messages
@@ -31,9 +61,20 @@ body
 {
 	text-align: center;
 }
+
+#colorbox
+{
+	text-align: left;
+}
+
 #container
 {
 	margin: 0 auto;
 	width:900px;
 	text-align: left;
+}
+
+p{
+	line-height: 16px;
+	margin-bottom: 10px;
 }

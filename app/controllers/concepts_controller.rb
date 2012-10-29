@@ -5,6 +5,8 @@ class ConceptsController < ApplicationController
   
   def show
     @concept = Concept.find(params[:id])
+    @presentation = @concept.presentation
+    @client = @presentation.client
   end
   
   

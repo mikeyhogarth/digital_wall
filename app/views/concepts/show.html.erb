@@ -1,5 +1,13 @@
 
+<% content_for :breadcrumbs do %>
+<%= link_to @client.name, client_path(@client) %> &gt; 
+<%= link_to "Presentations", client_presentations_path(@client) %> &gt; 
+<%= link_to @concept.presentation.name, client_presentation_path(@client,@presentation) %> &gt; 
+<span><%= @concept.name %></span>
+<% end %>
 
+<%= content_tag :h2, @concept.name %>
+<%= content_tag :p, @concept.description %>
 <%= image_tag @concept.image.url(:original) %>
 
-<%= link_to "Back to presentation", client_presentation_path(@concept.presentation.client, @concept.presentation) %> 
+ 

@@ -1,6 +1,9 @@
-<h1>Welcome to the Digital Wall</h1>
-
 <h2>Log in</h2>
+
+
+<% content_for :breadcrumbs do %>
+<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> 
+<% end %>
 
 <%= form_tag authenticate_path do %>
   <div class="field">

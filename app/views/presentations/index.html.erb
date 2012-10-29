@@ -1,15 +1,16 @@
 <h1>Presentations for <%= @client.name %></h1>
 
-<% if current_user.administrator? %>
-	<%= link_to 'New Presentation', new_client_presentation_path(@client) %> |
+<% content_for :breadcrumbs do %>
+<%= link_to @client.name, client_path(@client) %> &gt; <span>Presentations</span>
 <% end %>
- 
-<%= link_to "Back", client_path(@client) %>
 
-<hr />
+
+<% if current_user.administrator? %>
+	<%= link_to 'New Presentation', new_client_presentation_path(@client) %>
+<% end %>
 
 <% if @presentations.empty? %>
-	<p>This client does not have nay presentations loaded</p>
+	<p>This client does not have any presentations loaded</p>
 <% end %>
 
 <% @presentations.each do |presentation| %>
@@ -18,15 +19,18 @@
     	<%= link_to presentation.name, client_presentation_path(@client, presentation) %>
 	</h2>
 	
+	<span>
 	<% if presentation.has_concept? %>
-	<%= image_tag presentation.concepts.first.image.url(:thumbnail) %>
+		(<%= presentation.concepts.count%> concepts loaded)
+	<% else %>
+		(concepts not yet loaded)
 	<% end %>
-
+	</span>
+	
+	<div><%= sanitize presentation.description %></div>
 
 <% if current_user.administrator? %>
     <p><%= link_to 'Edit', edit_client_presentation_path(@client, presentation) %> | <%= link_to 'Destroy', client_presentation_path(@client, presentation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-    
-    <div><%= sanitize presentation.description %></div>
 <% end %>
 <hr />
     

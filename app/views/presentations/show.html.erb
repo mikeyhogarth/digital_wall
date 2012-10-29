@@ -3,30 +3,41 @@
 <% end %>
 
 
+<% content_for :breadcrumbs do %>
+<%= link_to @client.name, client_path(@client) %> &gt; 
+<%= link_to "Presentations", client_presentations_path(@client) %> &gt; 
+<span><%= @presentation.name %></span>
+<% end %>
+
+
 <h1> <%= @presentation.name %> </h1>
 <p> <%= sanitize @presentation.description %> </p>
 
 <% if current_user.administrator? %>
-	<%= link_to "New Concept", new_presentation_concept_path(@presentation), :class => "colorbox" %> |
+	<%= link_to "Edit Presentation", edit_client_presentation_path(@client, @presentation) %>
 <% end %>
 	
-<%= link_to "Back to #{@client.name} presentations", client_presentations_url(@client) %>
 
-<hr />
 
 <h2>Concepts</h2>
+
+<% if current_user.administrator? %>
+	<%= link_to "Add Concept", new_presentation_concept_path(@presentation), :class => "colorbox" %> 
+<% end %>
+
 <ul id="Gallery" class = "gallery">
 <% @presentation.concepts.each do |concept| %>
 	<li>
 		<a href = "<%= concept.image.url(:original) %>" class = "gallery_image">
 			<%= image_tag concept.image.url(:thumbnail) %>
 		</a>
-		<%= link_to concept.name, presentation_concept_path(@presentation, concept) %> 
 		
-		<% if current_user.administrator? %>
-		
-		<p><%= concept.name %> <%= link_to 'Destroy', presentation_concept_path(@presentation, concept), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
-			<% end %>
+		<p><%= link_to concept.name, presentation_concept_path(@presentation, concept) %>
+			<% if current_user.administrator? %>
+			| <%= link_to 'Destroy', presentation_concept_path(@presentation, concept), method: :delete, data: { confirm: 'Are you sure?' } %> 
+			<% end %>	
+		</p>		
+
 	</li>
 <% end %>
 </ul>

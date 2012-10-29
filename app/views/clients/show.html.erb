@@ -1,12 +1,15 @@
+
+<% content_for :breadcrumbs do %>
+<span><%= @client.name %></span> 
+<% end %>
+
 <h1><%= @client.name %></h1>
+<% if(current_user.administrator?) %>
+<%= link_to "Edit", edit_client_path(@client) %>
+<% end %>
 <p>
-	<%= @client.description %>
+	<%= sanitize @client.description %>
 </p>
 <ul>
   <li><%= link_to "View Client Presentations", client_presentations_path(@client) %></li>
-
-	<% unless current_user.client? %>
-  		<li><%= link_to 'Back to client list', clients_path %></li>
-	<% end %>
-	
 </ul>
