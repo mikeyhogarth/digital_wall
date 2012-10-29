@@ -1,6 +1,7 @@
 h1, h2, h3, h4, h5
 {
     margin-top: 20px;
+	margin-bottom: 5px;
 	color: #ce1141;
 }
 
@@ -77,4 +78,24 @@ body
 p{
 	line-height: 16px;
 	margin-bottom: 10px;
+}
+
+hr
+{
+	clear:both;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+img
+{
+
+border: 2px solid #EEE;
+}
+
+img.presentation_list_thumbnail
+{
+	float:left;
+	margin-right: 5px;
+	margin-bottom: 5px;
 }

@@ -22,6 +22,7 @@
 	<span>
 	<% if presentation.has_concept? %>
 		(<%= presentation.concepts.count%> concepts loaded)
+		<%= image_tag presentation.concepts.first.image.url(:thumbnail), :class => "presentation_list_thumbnail" %>
 	<% else %>
 		(concepts not yet loaded)
 	<% end %>

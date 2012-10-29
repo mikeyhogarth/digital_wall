@@ -10,6 +10,5 @@
 <p>
 	<%= sanitize @client.description %>
 </p>
-<ul>
-  <li><%= link_to "View Client Presentations", client_presentations_path(@client) %></li>
-</ul>
+
+<strong><%= link_to "Proceed to presentations >>", client_presentations_path(@client) %></strong>

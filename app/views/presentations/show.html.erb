@@ -29,7 +29,7 @@
 <% @presentation.concepts.each do |concept| %>
 	<li>
 		<a href = "<%= concept.image.url(:original) %>" class = "gallery_image">
-			<%= image_tag concept.image.url(:thumbnail) %>
+			<%= image_tag concept.image.url(:average) %>
 		</a>
 		
 		<p><%= link_to concept.name, presentation_concept_path(@presentation, concept) %>
