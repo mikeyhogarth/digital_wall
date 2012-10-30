@@ -2,7 +2,6 @@
 	<%= render "document_ready_scripts" %>
 <% end %>
 
-
 <% content_for :breadcrumbs do %>
 <%= link_to @client.name, client_path(@client) %> &raquo; 
 <%= link_to "Presentations", client_presentations_path(@client) %> &raquo; 

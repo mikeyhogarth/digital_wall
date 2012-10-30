@@ -1,22 +1,21 @@
 
 <% content_for :breadcrumbs do %>
-<%= link_to @client.name, client_path(@client) %> &raquo;
-
-<%= link_to "Presentations", client_presentations_path(@client) %> &raquo;
-
-<%= link_to @concept.presentation.name, client_presentation_path(@client,@presentation) %> &raquo;
-
-<span><%= @concept.name %></span>
-
+	<%= link_to @client.name, client_path(@client) %> &raquo;
+	<%= link_to "Presentations", client_presentations_path(@client) %> &raquo;
+	<%= link_to @concept.presentation.name, client_presentation_path(@client,@presentation) %> &raquo;
+	<span><%= @concept.name %></span>
 <% end %>
 
 <%= content_tag :h2, @concept.name %>
-<%= content_tag :p, @concept.description %>
 
-<%= link_to "previous", presentation_concept_path(@presentation, @concept.previous_concept) %>
-<%= link_to "next", presentation_concept_path(@presentation, @concept.next_concept) %>
+<% if current_user.administrator? %>
+	<%= link_to "Edit", edit_presentation_concept_path(@presentation, @concept)%> <br />
+<% end %>
 
-<br />
+<%= link_to "Previous", presentation_concept_path(@presentation, @concept.previous_concept) %>
+<%= link_to "Next", presentation_concept_path(@presentation, @concept.next_concept) %>
+
+<%= content_tag :div, sanitize(@concept.description) %>
  
 <%= image_tag @concept.image.url(:original) %>
 
