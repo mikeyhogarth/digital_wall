@@ -1,3 +1,9 @@
+<% content_for :breadcrumbs do %>
+	<%= link_to @concept.presentation.client.name, client_path(@concept.presentation.client) %> &raquo;
+	<%= link_to "Presentations", client_presentations_path(@concept.presentation.client) %> &raquo;
+	<%= link_to @concept.presentation.name, client_presentation_path(@concept.presentation.client,@concept.presentation) %> &raquo;
+	<span><%= @concept.name %></span>
+<% end %>
 
 <h1>Editing Concept</h1>
 

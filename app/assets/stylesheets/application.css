@@ -12,7 +12,6 @@
  *= require_tree .
 
  *= require colorbox/colorbox
- *= require photoswipe/photoswipe
  *= require gritter
  *= require redactor-rails
 

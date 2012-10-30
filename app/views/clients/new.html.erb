@@ -1,4 +1,8 @@
 <h1>New client</h1>
 
+<% content_for :breadcrumbs do %>
+<span>New</span> 
+<% end %>
+
 <%= render 'form' %>
 <%= link_to 'Cancel', clients_path %>

@@ -1,44 +1,6 @@
+
 <script type = "text/javascript">
 	$(document).ready(function() {
 		$(".colorbox").colorbox();
 	});
-</script>
-
-<script type = "text/javascript">
-
-(function(window, Util, PhotoSwipe){
-	document.addEventListener('DOMContentLoaded', function(){
-		var
-		conceptFunctionsEl,
-		conceptFunctionsElHandler = function(e){
-			alert('going to concept functions...');
-		}
-
-		options = {
-			getToolbar: function(){
-				return '<div class="ps-toolbar-close" style="padding-top: 12px;">Close</div><div class="ps-toolbar-previous" style="padding-top: 12px;">Previous</div><div class="ps-toolbar-next" style="padding-top: 12px;">Next</div><div class="concept-functions" style="padding-top: 12px;">Functions</div>';
-			},
-			autoStartSlideshow: false
-		},
-		
-		instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a.gallery_image'), options );
-		// onShow - store a reference to our "concept functions" button
-		instance.addEventHandler(PhotoSwipe.EventTypes.onShow, function(e){
-			conceptFunctionsEl = window.document.querySelectorAll('.concept-functions')[0];
-		});
-		// onToolbarTap - listen out for when the toolbar is tapped
-		instance.addEventHandler(PhotoSwipe.EventTypes.onToolbarTap, function(e){
-			if (e.toolbarAction === PhotoSwipe.Toolbar.ToolbarAction.none){
-				if (e.tapTarget === conceptFunctionsEl || Util.DOM.isChildOf(e.tapTarget, conceptFunctionsEl)){
-					alert('going to concept functions...');
-				}
-			}
-		});
-
-		// onBeforeHide - clean up
-		instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeHide, function(e){
-			conceptFunctionsEl = null;
-		});
-		}, false);
-		}(window, window.Code.Util, window.Code.PhotoSwipe));
 </script>

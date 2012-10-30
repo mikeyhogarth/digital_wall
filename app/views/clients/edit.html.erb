@@ -1,4 +1,8 @@
 <h1>Editing client</h1>
 
+<% content_for :breadcrumbs do %>
+<span><%= @client.name %></span> 
+<% end %>
+
 <%= render 'form' %>
 <%= link_to 'Cancel', clients_path %>

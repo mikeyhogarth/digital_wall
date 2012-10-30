@@ -2,11 +2,12 @@
 <%= link_to @client.name, client_path(@client) %> &gt; <span>Presentations</span>
 <% end %>
 
+<h1>Presentations for <%= @client.name %></h1>
+
 <% if current_user.administrator? %>
 	<%= link_to 'New Presentation', new_client_presentation_path(@client) %>
 <% end %>
 
-<h1>Presentations for <%= @client.name %></h1>
 
 <% if @presentations.empty? %>
 	<p>This client does not have any presentations loaded</p>
@@ -15,18 +16,23 @@
 <% @presentations.each do |presentation| %>
 
     <h2>
-    	<%= link_to presentation.name, client_presentation_path(@client, presentation) %>
+    	<%= presentation.name %>
 	</h2>
 
-
-	<% if current_user.administrator? %>
-	    <p><%= link_to 'Edit', edit_client_presentation_path(@client, presentation) %> | <%= link_to 'Destroy', client_presentation_path(@client, presentation), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-	<% end %>
+	<p>
+		<%= link_to "Show", client_presentation_path(@client, presentation) %>
+		<% if current_user.administrator? %>
+	    	 | <%= link_to 'Edit', edit_client_presentation_path(@client, presentation) %> | <%= link_to 'Destroy', client_presentation_path(@client, presentation), method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+	</p>
 		
 	<span>
 	<% if presentation.has_concept? %>
 		(<%= presentation.concepts.count%> concepts loaded)
+		
+		<%= link_to client_presentation_path(@client, presentation) do %>
 		<%= image_tag presentation.concepts.first.image.url(:thumbnail), :class => "presentation_list_thumbnail" %>
+		<% end %>
 	<% else %>
 		(concepts not yet loaded)
 	<% end %>

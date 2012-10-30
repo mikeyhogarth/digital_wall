@@ -28,10 +28,12 @@
 <ul id="Gallery" class = "gallery">
 	<% @presentation.concepts.each do |concept| %>
 		<li>	
-						<%= content_tag :h3, concept.name %>		
-			<a href = "<%= concept.image.url(:original) %>" class = "gallery_image">
-				<%= image_tag concept.image.url(:average), :alt => concept.name %>
-			</a>
+				<%= content_tag :h3, concept.name %>		
+
+				<%= link_to presentation_concept_path(@presentation, concept) do %>
+					<%= image_tag concept.image.url(:average), :alt => concept.name, :class => "gallery_image" %>
+				<% end %>
+
 			<p><%= link_to "Show", presentation_concept_path(@presentation, concept) %>
 				<% if current_user.administrator? %>
 				| <%= link_to 'Destroy', presentation_concept_path(@presentation, concept), :method => :delete, :data => { confirm: 'Are you sure?' } %> 

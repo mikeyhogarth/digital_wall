@@ -1,4 +1,4 @@
-<%= form_for([@presentation, @concept], :remote => @is_remote || false) do |f| %>
+<%= form_for([@presentation, @concept], :remote => true || false) do |f| %>
 
   <div class="field">
     <%= f.label :name %>
@@ -9,7 +9,7 @@
     <%= f.text_area :description, :class => "redactor" %>
   </div>
   <div class="field">
-    <%= f.label :image %>
+	<br />
  	<%= f.file_field :image %>
   </div>
 
