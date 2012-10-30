@@ -61,7 +61,8 @@ header
 body
 {
 	text-align: center;
-	
+	background-color: #F9F9F9;
+	color: #010101;
 	#container
 	{
 		margin: 0 auto;
@@ -70,7 +71,7 @@ body
 		
 		
 		p{
-			line-height: 16px;
+			line-height: 17px;
 			margin-bottom: 10px;
 		}
 
@@ -99,7 +100,7 @@ body
 #Gallery li
 {
 	float: left;
-	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .field
