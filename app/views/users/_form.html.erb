@@ -29,6 +29,11 @@
   </div>
 
   <div class="field">
+    <%= f.label "Client" %><br />
+    <%= f.collection_select :client_id, Client.find(:all), :id, :name, {:prompt => true} %>
+  </div>
+
+  <div class="field">
     <%= f.label :administrator %><br />
     <%= f.check_box :administrator %>
   </div>
