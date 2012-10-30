@@ -16,4 +16,12 @@ class Concept < ActiveRecord::Base
 
   #scope
   default_scope :order => "created_at DESC"
+  
+  def next_concept
+    presentation.concepts.where(["created_at < ?", created_at]).first || presentation.concepts.first
+  end
+  
+  def previous_concept
+    presentation.concepts.where(["created_at > ?", created_at]).first || presentation.concepts.last
+  end
 end

@@ -4,10 +4,17 @@
 <%= link_to "Presentations", client_presentations_path(@client) %> &gt; 
 <%= link_to @concept.presentation.name, client_presentation_path(@client,@presentation) %> &gt; 
 <span><%= @concept.name %></span>
+
 <% end %>
 
 <%= content_tag :h2, @concept.name %>
 <%= content_tag :p, @concept.description %>
+
+<%= link_to "previous", presentation_concept_path(@presentation, @concept.previous_concept) %>
+<%= link_to "next", presentation_concept_path(@presentation, @concept.next_concept) %>
+
+<br />
+ 
 <%= image_tag @concept.image.url(:original) %>
 
  
