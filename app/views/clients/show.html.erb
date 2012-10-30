@@ -11,4 +11,4 @@
 	<%= sanitize @client.description %>
 </p>
 
-<strong><%= link_to "Proceed to presentations >>", client_presentations_path(@client) %></strong>
+<%= link_to "Proceed to presentations >>", client_presentations_path(@client), :class => "button" %>

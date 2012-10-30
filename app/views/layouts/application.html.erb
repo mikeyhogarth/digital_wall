@@ -16,7 +16,10 @@
 	  </div>
 	</header>
 	<nav id="breadcrumbs">
-	
+		<% if(current_user.administrator?) %>
+			<%= link_to "Client List", clients_path %> 
+			<% if(content_for? :breadcrumbs)%> &raquo; <% end %>
+		<% end %>
 	<%= yield :breadcrumbs %>
 	</nav>
 

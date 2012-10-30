@@ -4,8 +4,8 @@
 
 
 <% content_for :breadcrumbs do %>
-<%= link_to @client.name, client_path(@client) %> &gt; 
-<%= link_to "Presentations", client_presentations_path(@client) %> &gt; 
+<%= link_to @client.name, client_path(@client) %> &raquo; 
+<%= link_to "Presentations", client_presentations_path(@client) %> &raquo; 
 <span><%= @presentation.name %></span>
 <% end %>
 
