@@ -1,0 +1,17 @@
+
+	$(document).ready(function() {
+		
+		$(".colorbox").colorbox(
+			{onComplete: bindAjaxToConceptForm }
+		);
+	});
+	
+	function bindAjaxToConceptForm() {
+		$("#new_concept").bind("ajax:success", function(xhr, data, status) {
+			jQuery.each(eval(data), function() {
+				jQuery.gritter.add({image:'/assets/notice.png',title:'Field Error',text: this});
+			})
+	    });
+	}
+	
+

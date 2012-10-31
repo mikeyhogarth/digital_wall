@@ -21,6 +21,8 @@ class ConceptsController < ApplicationController
         
     if @concept.update_attributes(params[:concept])    
       redirect_to presentation_concept_url(:id => @concept.id, :presentation_id => @concept.presentation_id, :notice => 'Concept was successfully updated.')
+    else
+      render :action => :edit
     end
 
   end
@@ -38,9 +40,13 @@ class ConceptsController < ApplicationController
     @concept = @presentation.concepts.new(params[:concept])
 
     if(@concept.save)
+      puts "I SAVED"
       redirect_to client_presentation_path(@presentation.client, @presentation)
     else
-      render partial: "form"
+      respond_to do |format|
+        format.html { render partial: "form"}
+        format.js { render :json => @concept.errors.full_messages.to_json }
+      end
     end
     
   end

@@ -8,10 +8,10 @@ class Concept < ActiveRecord::Base
   #validation
   validates_presence_of :name, :description
   validates_attachment_presence :image
+  validates :description, :length => { :minimum => 15}
 
   #associations
   belongs_to :presentation
-
 
   #scope
   default_scope :order => "created_at DESC"
