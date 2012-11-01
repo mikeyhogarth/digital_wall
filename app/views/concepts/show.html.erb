@@ -8,6 +8,7 @@
 
 <%= content_tag :h2, @concept.name %>
 
+<div id = "concept_actions">
 <% if current_user.administrator? %>
 	<%= link_to "Edit", edit_presentation_concept_path(@presentation, @concept)%> <br />
 <% end %>
@@ -15,8 +16,24 @@
 <%= link_to "Previous", presentation_concept_path(@presentation, @concept.previous_concept) %>
 <%= link_to "Next", presentation_concept_path(@presentation, @concept.next_concept) %>
 
-<%= content_tag :div, sanitize(@concept.description) %>
- 
-<%= image_tag @concept.image.url(:original) %>
+</div>
 
+<div id = "concept_image">
+	<%= image_tag @concept.image.url(:zoomed_out) %>
+</div>
+
+<div id="concept_description">
+<%= sanitize(@concept.description) %>
+</div>
+
+
+<% content_for :document_ready do %>
+
+<script type = "text/javascript">
+	$(document).ready(function(){
+    	$('#concept_image').zoom({url: '<%= @concept.image.url(:original) %>'});
+	});
+</script>
+
+<% end %>
  

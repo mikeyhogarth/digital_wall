@@ -30,9 +30,12 @@ class ConceptsController < ApplicationController
   def new
     @presentation = Presentation.find(params[:presentation_id])
     @concept = @presentation.concepts.build
-    @is_remote = true
     
-    render partial: "form"
+    respond_to do |format|
+      format.js { @is_remote = true; render partial: "form" }
+    end
+    
+    
   end  
   
   def create
@@ -40,11 +43,10 @@ class ConceptsController < ApplicationController
     @concept = @presentation.concepts.new(params[:concept])
 
     if(@concept.save)
-      puts "I SAVED"
       redirect_to client_presentation_path(@presentation.client, @presentation)
     else
       respond_to do |format|
-        format.html { render partial: "form"}
+        format.html { render action: "new"}
         format.js { render :json => @concept.errors.full_messages.to_json }
       end
     end

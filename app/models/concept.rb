@@ -3,7 +3,7 @@ class Concept < ActiveRecord::Base
 
   #properties
   attr_accessible :name, :description, :image  
-  has_attached_file :image, :styles => { :thumbnail => "200x200", :average => "300x300" }
+  has_attached_file :image, :styles => { :thumbnail => "200x200", :average => "300x300", :zoomed_out => "500x" }
   
   #validation
   validates_presence_of :name, :description

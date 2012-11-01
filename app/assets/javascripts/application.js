@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require jquery.colorbox
+//= require jquery.zoom
 //= require gritter
 //= require redactor-rails

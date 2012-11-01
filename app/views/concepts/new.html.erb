@@ -1,0 +1,11 @@
+<% content_for :breadcrumbs do %>
+	<%= link_to @presentation.client.name, client_path(@presentation.client) %> &raquo;
+	<%= link_to "Presentations", client_presentations_path(@presentation.client) %> &raquo;
+	<%= link_to @presentation.name, client_presentation_path(@concept.presentation.client,@concept.presentation) %> &raquo;
+	<span>New Concept</span>
+<% end %>
+
+<h1>New Concept</h1>
+
+<%= render 'form' %>
+<%= link_to 'Cancel', client_presentation_path(@presentation.client, @presentation) %>
