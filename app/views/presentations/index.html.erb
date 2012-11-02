@@ -16,7 +16,7 @@
 <% @presentations.each do |presentation| %>
 
     <h2>
-    	<%= presentation.name %>
+    	<%= presentation.name %> <%= content_tag :span, "(Not Active)" unless presentation.active? %>
 	</h2>
 
 	<p>

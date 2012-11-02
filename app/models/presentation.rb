@@ -1,7 +1,7 @@
 class Presentation < ActiveRecord::Base
 
   #properties
-  attr_accessible :client_id, :description, :name
+  attr_accessible :client_id, :description, :name, :active
 
   #validation
   validates_presence_of :name
