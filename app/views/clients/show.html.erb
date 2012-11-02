@@ -3,11 +3,14 @@
 <span><%= @client.name %></span> 
 <% end %>
 
+
+
 <h1><%= @client.name %></h1>
 <% if(current_user.administrator?) %>
 <%= link_to "Edit", edit_client_path(@client) %>
 <% end %>
 <p>
+	<%= image_tag @client.logo.url(:original), :id => "client_logo" %>
 	<%= sanitize @client.description %>
 </p>
 

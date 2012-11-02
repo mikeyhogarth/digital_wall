@@ -2,14 +2,32 @@
 	$(document).ready(function() {
 		
 		$(".colorbox").colorbox(
-			{onComplete: bindAjaxToConceptForm }
+			{onComplete: colorboxComplete, autoresize: false }
 		);
 	});
+	
+	function colorboxComplete() {
+		bindAjaxToConceptForm();
+		clientSideImageCheck();		
+		$(".redactor").redactor({ minHeight: 200 });
+	}
+	
+	function clientSideImageCheck()
+	{
+		$("#new_concept input[type=submit]").on("click", function()
+		{
+			if($("#new_concept #concept_image").val().length == 0);
+			{
+				globalValidationMessage("No file selected");
+				return false;
+			}
+		});
+	}
 	
 	function bindAjaxToConceptForm() {
 		$("#new_concept").bind("ajax:success", function(xhr, data, status) {
 			jQuery.each(eval(data), function() {
-				jQuery.gritter.add({image:'/assets/notice.png',title:'Field Error',text: this});
+				globalValidationMessage(this);
 			})
 	    });
 	}
