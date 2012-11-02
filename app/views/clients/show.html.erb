@@ -10,7 +10,7 @@
 <%= link_to "Edit", edit_client_path(@client) %>
 <% end %>
 <p>
-	<%= image_tag @client.logo.url(:original), :id => "client_logo" %>
+	<%= image_tag @client.logo.url(:original), :id => "client_logo" if(@client.logo.present?) %>
 	<%= sanitize @client.description %>
 </p>
 
