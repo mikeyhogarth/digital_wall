@@ -1,15 +1,14 @@
 
 	$(document).ready(function() {
-		
 		$(".colorbox").colorbox(
-			{onComplete: colorboxComplete, autoresize: false }
+			{ width: 400, onComplete: colorboxComplete }
 		);
 	});
 	
 	function colorboxComplete() {
 		bindAjaxToConceptForm();
 		clientSideImageCheck();		
-		$(".redactor").redactor({ minHeight: 200 });
+		$(".redactor").redactor({ minHeight: 150 });
 	}
 	
 	function clientSideImageCheck()

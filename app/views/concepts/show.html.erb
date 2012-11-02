@@ -10,7 +10,9 @@
 
 <div id = "concept_actions">
 <% if current_user.administrator? %>
-	<%= link_to "Edit", edit_presentation_concept_path(@presentation, @concept)%> <br />
+	<%= link_to "Edit", edit_presentation_concept_path(@presentation, @concept)%> 
+	| <%= link_to 'Destroy', presentation_concept_path(@presentation, @concept), :method => :delete, :data => { confirm: 'Are you sure?' } %> 
+	<br />
 <% end %>
 
 <%= link_to "Previous", presentation_concept_path(@presentation, @concept.previous_concept) %>
@@ -23,7 +25,8 @@
 </div>
 
 <div id="concept_description">
-	<%= link_to "Full Size", @concept.image.url(:original), :target => "_blank" %>
+	<%= link_to "Enlarge", @concept.image.url(:original), :id => "enlarge_concept_image" %> |
+	<%= link_to "Download Full Size", @concept.image.url(:original), :target => "_blank" %>
 <%= sanitize(@concept.description) %>
 </div>
 

@@ -3,11 +3,16 @@ class Concept < ActiveRecord::Base
 
   #properties
   attr_accessible :name, :description, :image  
-  has_attached_file :image, :styles => { :thumbnail => "200x200", :average => "300x300", :zoomed_out => "500x" }
+  has_attached_file :image, :styles => { 
+        :thumbnail => "200x200", 
+        :average => "300x300", 
+        :zoomed_out => "500x"
+  }
   
   #validation
   validates_presence_of :name, :description
   validates_attachment_presence :image
+    validates_attachment_content_type :image, :content_type => ['image/gif', 'image/jpeg', 'image/png']  
   validates :description, :length => { :minimum => 15}
 
   #associations

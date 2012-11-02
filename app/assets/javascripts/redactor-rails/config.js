@@ -11,6 +11,6 @@ $(document).ready(
       "imageGetJson":"/redactor_rails/pictures",
       "path":"/assets/redactor-rails",
       "css":"style.css",
-	  minHeight:200}
+	  minHeight:150}
   );
 });
