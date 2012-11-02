@@ -17,6 +17,7 @@ class Concept < ActiveRecord::Base
 
   #associations
   belongs_to :presentation
+  has_many :annotations
 
   #scope
   default_scope :order => "created_at DESC"

@@ -1,6 +1,6 @@
 class ConceptsController < ApplicationController
   
-  before_filter :admin_only!, :except => :show
+  before_filter :admin_only!, :except => [:show, :annotations, :annotate]
 
   
   def show
@@ -35,7 +35,6 @@ class ConceptsController < ApplicationController
       format.js { @is_remote = true; render partial: "form" }
     end
     
-    
   end  
   
   def create
@@ -50,16 +49,22 @@ class ConceptsController < ApplicationController
         format.js { render :json => @concept.errors.full_messages.to_json }
       end
     end
-    
   end
     
   def destroy
     @presentation = Presentation.find(params[:presentation_id])
     @concept = Concept.find(params[:id])
     @concept.destroy
-    
     redirect_to client_presentation_path(@presentation.client, @presentation) 
-    
   end
+  
+  def annotations
+  end
+  
+  def annotate
+    redirect_to :action => :annotations
+  end
+  
+  
   
 end

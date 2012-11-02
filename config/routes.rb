@@ -17,11 +17,11 @@ DigitalWall::Application.routes.draw do
   end
   
   resources :presentations do
-    resources :concepts
+    resources :concepts do
+      get :annotations
+      post :annotate
+    end
   end
-
-
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -15,8 +15,6 @@
 	<br />
 <% end %>
 
-<%= link_to "Previous", presentation_concept_path(@presentation, @concept.previous_concept) %>
-<%= link_to "Next", presentation_concept_path(@presentation, @concept.next_concept) %>
 
 </div>
 
@@ -25,8 +23,12 @@
 </div>
 
 <div id="concept_description">
+	<%= link_to "Previous", presentation_concept_path(@presentation, @concept.previous_concept) %>
+	<%= link_to "Next", presentation_concept_path(@presentation, @concept.next_concept) %>
+	<br /><br />
+	<%= link_to "Annotate", presentation_concept_annotations_path(@presentation, @concept) %> |
 	<%= link_to "Enlarge", @concept.image.url(:original), :id => "enlarge_concept_image" %> |
-	<%= link_to "Download Full Size", @concept.image.url(:original), :target => "_blank" %>
+	<%= link_to "View Full Size", @concept.image.url(:original), :target => "_blank" %>
 <%= sanitize(@concept.description) %>
 </div>
 

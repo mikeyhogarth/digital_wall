@@ -3,6 +3,6 @@ var enlarged_height = $(window).height() * 0.9;
 
 $(document).ready(function() {
 		
-	$("#enlarge_concept_image").colorbox({width:enlarged_width});
+	$("#enlarge_concept_image").colorbox({width: enlarged_width});
 		
 });
