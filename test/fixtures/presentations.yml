@@ -1,11 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  description: MyText
-  client_id: 
-
-two:
-  name: MyString
-  description: MyText
-  client_id: 
+  id: 1    
+  name: Test Presentation
+  description: This is a description of the presentation
+  client_id: 1

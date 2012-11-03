@@ -1,11 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  image_url: MyString
-  description: MyText
-
-two:
-  name: MyString
-  image_url: MyString
-  description: MyText
+  name: Test Concept
+  description: This is a description for a test concept
+  presentation_id: 1
