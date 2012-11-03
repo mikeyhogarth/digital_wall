@@ -1,6 +1,5 @@
 DigitalWall::Application.routes.draw do
 
-
   mount RedactorRails::Engine => '/redactor_rails'
 
   root :to => 'clients#index'
@@ -18,11 +17,13 @@ DigitalWall::Application.routes.draw do
   
   resources :presentations do
     resources :concepts do
-      get :annotations
-      post :annotate
     end
   end
 
+  resources :concepts do
+    resources :annotations
+  end
+    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

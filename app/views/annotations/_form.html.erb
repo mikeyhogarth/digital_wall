@@ -1,0 +1,11 @@
+<%= form_for([@concept,@annotation]) do |f| %>
+	
+  <div class="field">
+    <%= f.text_area :body, :rows => 10 %>
+  </div>
+
+	<%= f.submit %>
+	
+	<%= f.hidden_field :x %>
+	<%= f.hidden_field :y %>	
+<% end %>

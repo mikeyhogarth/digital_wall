@@ -1,0 +1,25 @@
+
+<% content_for :breadcrumbs do %>
+	<%= link_to @client.name, client_path(@client) %> &raquo;
+	<%= link_to "Presentations", client_presentations_path(@client) %> &raquo;
+	<%= link_to @concept.presentation.name, client_presentation_path(@client,@presentation) %> &raquo;
+	<%= link_to @concept.name, presentation_concept_path(@presentation,@concept) %> &raquo;
+	<span>Annotate</span>
+<% end %>
+
+<div id = "annotation-image">
+	<% @concept.annotations.each do |annotation| %>
+		<%= content_tag :span, "X", :class => :annotation_marker, :style => "left: #{annotation.x}px; top: #{annotation.y}px;", :data => { :annotation_id => annotation.id } %>
+	<% end %>
+	<%= image_tag @concept.image.url(:original) %>
+</div>
+
+<div id = "annotation_list">
+	<% @concept.annotations.each do |annotation| %>
+		<%= content_tag :blockquote, annotation.body %>
+	<% end %>
+</a>
+
+<script type = "text/javascript">
+	var new_concept_path = '<%= new_concept_annotation_path(@concept)%>';
+</script>

@@ -57,9 +57,7 @@ class ConceptsController < ApplicationController
     @concept.destroy
     redirect_to client_presentation_path(@presentation.client, @presentation) 
   end
-  
-  def annotations
-  end
+
   
   def annotate
     redirect_to :action => :annotations
