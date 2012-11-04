@@ -4,34 +4,6 @@ var enlarged_height = $(window).height() * 0.9;
 $(document).ready(function() {
 	$("#enlarge_concept_image").colorbox({width: enlarged_width});		
 
-	$("#annotation-image").on("click", function(e) {		
-		var parentOffset = $(this).offset(); 
-		
-		var relX = e.pageX - parentOffset.left;
-	   	var relY = e.pageY - parentOffset.top;
-		
-		create_annotation_form(relX, relY)
-	});
+
 });
 
-function create_annotation_form(x,y) {
-	if($(".new_annotation_container").length > 0)
-	{
-		return;
-	}
-	
-	$.ajax({
-	  url: new_concept_path,
-	  success: function(data) {
-	    	$("#annotation-image").append("<div class='new_annotation_container' style = 'left:" + x + "px;top:" + y + "px;'>" + data + "<a id='new_concept_close' href = '#'>Close</a></div>");
-			$("#annotation_x").val(x); $("#annotation_y").val(y); $(".new_annotation_container").fadeIn();
-$(".new_annotation_container textarea").focus();
-			$("#new_concept_close").on("click", 
-				function() {
-					$(".new_annotation_container").hide(); 
-					setTimeout(function() {$(".new_annotation_container").remove()}, 500 );
-					return false;
-				})
-		  }	
-	});
-}

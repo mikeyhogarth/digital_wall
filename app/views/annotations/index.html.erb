@@ -9,16 +9,23 @@
 
 <div id = "annotation-image">
 	<% @concept.annotations.each do |annotation| %>
-		<%= content_tag :span, "X", :class => :annotation_marker, :style => "left: #{annotation.x}px; top: #{annotation.y}px;", :data => { :annotation_id => annotation.id } %>
+		
+		<%= content_tag :div, :class => :annotation_marker_container, :style => "left: #{annotation.x}px; top: #{annotation.y}px;", :data => { :annotation_id => annotation.id } do %>
+			<%= content_tag :span, "..." %>
+		<% end %>
 	<% end %>
 	<%= image_tag @concept.image.url(:original) %>
 </div>
 
-<div id = "annotation_list">
+<ul id = "annotation_list">
+	
 	<% @concept.annotations.each do |annotation| %>
-		<%= content_tag :blockquote, annotation.body %>
+		<%= content_tag :li do %>
+			<%= content_tag :blockquote, annotation.body, :data => { :annotation_id => annotation.id } %>
+			<%= content_tag :span, "by #{annotation.user.username}" %>
+		<% end%>
 	<% end %>
-</a>
+</ul>
 
 <script type = "text/javascript">
 	var new_concept_path = '<%= new_concept_annotation_path(@concept)%>';
