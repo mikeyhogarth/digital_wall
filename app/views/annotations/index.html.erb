@@ -22,7 +22,7 @@
 	<% @concept.annotations.each do |annotation| %>
 		<%= content_tag :li do %>
 			<%= content_tag :blockquote, annotation.body, :data => { :annotation_id => annotation.id } %>
-			<%= content_tag :span, "by #{annotation.user.username}" %>
+			<%= content_tag :span, "by #{annotation.user.nice_name}" %>
 		<% end%>
 	<% end %>
 </ul>

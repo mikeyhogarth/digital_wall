@@ -1,5 +1,10 @@
 <h1>Editing User</h1>
 
+<% if @user.has_profile? %>
+	<%= link_to "Edit User Profile", edit_user_profile_path(@user, @user.profile) %>
+<% else %>
+	<%= link_to "Edit User Profile", new_user_profile_path(@user) %>
+<% end %>
 <%= render 'form' %>
 
 <%= link_to 'Cancel', users_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102170327) do
+ActiveRecord::Schema.define(:version => 20121105144843) do
 
   create_table "annotations", :force => true do |t|
     t.text     "body"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(:version => 20121102170327) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.boolean  "active"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "redactor_assets", :force => true do |t|
